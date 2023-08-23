@@ -8,24 +8,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-const rulesRouter = require('./routes/rulesRouter');
+const rulesRouter = require("./routes/rulesRouter");
 
 // Server Port
 const port = process.env.PORT || 5555;
 
-
-
 app.use((req, _res, next) => {
-    console.log(`${Date.now()} incoming request at ${req.originalUrl}`);
-    next();
-  });
-
-app.get('/', (_req, res) => {
-  res.send('Running!');
+  console.log(`${Date.now()} incoming request at ${req.originalUrl}`);
+  next();
 });
 
-app.use('/rules', rulesRouter)
+app.get("/", (_req, res) => {
+  res.send("This Server is Running!");
+});
 
+app.use("/rules", rulesRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
