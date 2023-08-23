@@ -10,7 +10,7 @@ const DATABASE_NAME = process.env.DATABASE_NAME;
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
-  client: "mysql2",
+  client: "mysql",
   connection: {
     host: DATABASE_HOST,
     port : DATABASE_PORT,
