@@ -73,7 +73,7 @@ module.exports = [
     episode_id: "ld-3x06",
     series_id: "LD",
     episode_season: 3,
-    episode_number: 06,
+    episode_number: 6,
     episode_date: "2022-09-29",
     episode_synopsis:
       "The Cerritos crew unexpectedly spends a day on Deep Space 9.",
@@ -213,7 +213,7 @@ module.exports = [
     episode_id: "ds9-4x08",
     series_id: "DS9",
     episode_season: 4,
-    episode_number: 08,
+    episode_number: 8,
     episode_date: "1995-11-15",
     episode_synopsis:
       "A malfunction on Quark's new ship causes Quark, Rom, and Nog to crash in the year 1947 in Roswell, New Mexico.",
