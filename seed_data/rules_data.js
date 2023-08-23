@@ -179,6 +179,11 @@ module.exports = [
       "New customers are like razor-toothed gree-worms. They can be succulent, but sometimes they bite back.",
   },
   {
+    rule_number: 208,
+    rule_text:
+      "Sometimes the only thing more dangerous than a question is an answer.",
+  },
+  {
     rule_number: 211,
     rule_text:
       "Employees are the rungs on the ladder of success. Don't hesitate to step on them.",

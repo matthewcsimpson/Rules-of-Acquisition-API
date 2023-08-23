@@ -252,6 +252,15 @@ module.exports = [
     episode_id: "ds9-4x08",
   },
   {
+    rule_number: 208,
+    episode_id: "ds9-5x20",
+  },
+  {
+    rule_number: 208,
+    episode_id: "pro-1x07",
+  },
+
+  {
     rule_number: 211,
     episode_id: "ds9-4x16",
   },
