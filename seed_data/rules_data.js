@@ -198,7 +198,7 @@ module.exports = [
   },
   {
     rule_number: 223,
-    rule_text: "...",
+    rule_text: "[The 223rd Rule]",
     rule_note:
       'Unknown, but presumably concerned the relationship between "keeping busy" and "being successful".',
   },

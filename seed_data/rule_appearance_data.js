@@ -306,10 +306,3 @@ module.exports = [
     episode_id: "ent-1x19",
   },
 ];
-
-// {
-//     rule_number:,
-//     episode_id: "",
-//      variation:
-//    revised_edition:
-// }

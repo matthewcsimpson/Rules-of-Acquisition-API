@@ -3,7 +3,13 @@ const knex = require("knex")(require("../knexfile"));
 const getRuleById = async (req, res) => {
   const ruleDetails = await knex("rules")
     .where("rules.rule_number", req.params.rule_id)
-    .select("rules.rule_number", "rules.rule_text", "rules.canon", "rules.rule_variation", "rules.rule_note", "rules.revised_edition")
+    .select(
+      "rules.rule_number",
+      "rules.rule_text",
+      "rules.rule_variation",
+      "rules.rule_note",
+      "rules.revised_edition"
+    )
     .catch((err) => {
       res.error(err);
       console.error("ERROR:", err);
@@ -28,8 +34,7 @@ const getRuleById = async (req, res) => {
       console.error("ERROR:", err);
     });
 
-
-  res.json({ruleDetails, episodeDetails});
+  res.json({ ruleDetails, episodeDetails });
 };
 
 module.exports = { getRuleById };
