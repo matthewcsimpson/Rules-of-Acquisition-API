@@ -11,6 +11,4 @@ router.get("/", getAllRules);
 // Get Specific Rule by Id
 router.get("/:rule_id", getRuleById);
 
-
-
 module.exports = router;
