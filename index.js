@@ -10,12 +10,19 @@ app.use(express.static("public"));
 
 const rulesRouter = require("./routes/rulesRouter");
 
+const { checkApiKey } = require("./utilities/checkApiKey");
+
 // Server Port
 const port = process.env.PORT || 5555;
 
-app.use((req, _res, next) => {
-  console.log(`${Date.now()} incoming request at ${req.originalUrl}`);
-  next();
+app.use(async (req, res, next) => {
+  console.info(`${Date.now()} incoming request at ${req.url}`);
+  if (await checkApiKey(req.headers["api_key"])) {
+    console.info(`VALID API KEY`);
+    next();
+  } else {
+    res.json("Invalid API Key");
+  }
 });
 
 app.get("/", (_req, res) => {

@@ -6,7 +6,7 @@ const knex = require("knex")(require("../knexfile"));
  * @param {*} _req 
  * @param {*} res 
  */
-const getAllRules = async (_req, res) => {
+const getAllRules = async (req, res) => {
   let rules = await knex("rules")
     .select(
       "rule_number",
