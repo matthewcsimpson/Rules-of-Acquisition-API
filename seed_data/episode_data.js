@@ -409,6 +409,15 @@ module.exports = [
       "The Defiant receives a distress call from a Starfleet captain stranded on an inhospitable planet.",
     episode_title: "The Sound of Her Voice ",
   },
+  {
+    episode_id: "ld-4x06",
+    series_id: "LD",
+    episode_season: 4,
+    episode_number: 6,
+    episode_date: "2023-10-05",
+    episode_synopsis: "The Cerritos visits the Ferengi homeworld.",
+    episode_title: "Parth Ferengi's Heart Place ",
+  },
 ];
 
 // {

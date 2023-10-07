@@ -18,6 +18,10 @@ module.exports = [
     rule_text: "Keep your ears open.",
   },
   {
+    rule_number: 8,
+    rule_text: "Small print leads to large risk.",
+  },
+  {
     rule_number: 9,
     rule_text: "Opportunity plus instinct equals profit.",
   },

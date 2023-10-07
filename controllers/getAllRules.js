@@ -8,15 +8,12 @@ const knex = require("knex")(require("../knexfile"));
  */
 const getAllRules = async (req, res) => {
   let rules = await knex("rules")
-    .select("rules.rule_number", "rules.rule_text", "episodes.series_id")
-    .join("rule_appearance", "rule_appearance.rule_number", "rules.rule_number")
-    .join("episodes", "episodes.episode_id", "rule_appearance.episode_id")
+    .select("rules.rule_number", "rules.rule_text")
     .orderBy("rules.rule_number")
     .catch((err) => {
       console.error(err);
       res.json(err);
     });
-
   res.status(200).send(rules);
 };
 
