@@ -34,7 +34,7 @@ const getRuleById = async (req, res) => {
       console.error("ERROR:", err);
     });
 
-  if (!ruleDetails.ruleNumber) {
+  if (!ruleDetails) {
     res.status(404).json({ error: `There is no rule by that number` });
   } else {
     res.status(200).json({ ruleDetails: ruleDetails[0], episodeDetails });
