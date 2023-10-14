@@ -1,6 +1,17 @@
 const knex = require("knex")(require("../knexfile"));
 
 const getRuleById = async (req, res) => {
+  // List all the rule numbers for error checking
+  const ruleNums = await knex("rules")
+    .select("rule_number")
+    .catch((err) => {
+      console.error("Error: ", err);
+    });
+
+  let checkRule = ruleNums.find(
+    (rule) => rule.rule_number === Number(req.params.rule_id)
+  );
+
   const ruleDetails = await knex("rules")
     .where("rules.rule_number", req.params.rule_id)
     .select(
@@ -34,9 +45,7 @@ const getRuleById = async (req, res) => {
       console.error("ERROR:", err);
     });
 
-    console.log(ruleDetails)
-
-  if (!ruleDetails.ruleNumber) {
+  if (!checkRule) {
     res.status(404).json({ error: `There is no rule by that number` });
   } else {
     res.status(200).json({ ruleDetails: ruleDetails[0], episodeDetails });
