@@ -3,6 +3,8 @@ module.exports = [
     rule_number: 1,
     rule_text: "Once you have their money, you never give it back.",
     revised_edition: "If they want their money back, give it to them.",
+    revised_note:
+      "The revised edition was written by Grand Nagus Zek while temporarily turned into a philanthropist under the influence of the Bajoran Prophets",
   },
   {
     rule_number: 3,
@@ -29,6 +31,8 @@ module.exports = [
     rule_number: 10,
     rule_text: "Greed is eternal",
     revised_edition: "Greed is dead.",
+    revised_note:
+      "The revised edition was written by Grand Nagus Zek while temporarily turned into a philanthropist under the influence of the Bajoran Prophets",
   },
   {
     rule_number: 16,
@@ -47,17 +51,23 @@ module.exports = [
     rule_number: 21,
     rule_text: "Never place friendship above profit.",
     revised_edition: "Never place profit before friendship.",
+    revised_note:
+      "The revised edition was written by Grand Nagus Zek while temporarily turned into a philanthropist under the influence of the Bajoran Prophets",
   },
   {
     rule_number: 22,
     rule_text: "A wise man can hear profit in the wind.",
     revised_edition: "Latinum tarnishes, but family is forever.",
+    revised_note:
+      "The revised edition was written by Grand Nagus Zek while temporarily turned into a philanthropist under the influence of the Bajoran Prophets",
   },
   {
     rule_number: 23,
     rule_text:
       "Nothing is more important than your health… except for your money.",
     revised_edition: "Money can never replace dignity.",
+    revised_note:
+      "The revised edition was written by Grand Nagus Zek while temporarily turned into a philanthropist under the influence of the Bajoran Prophets",
   },
   {
     rule_number: 31,
@@ -224,6 +234,8 @@ module.exports = [
     rule_number: 285,
     rule_text: "No good deed ever goes unpunished.",
     revised_edition: "A good deed is its own reward.",
+    revised_note:
+      "The revised edition was written by Grand Nagus Zek while temporarily turned into a philanthropist under the influence of the Bajoran Prophets",
   },
   {
     rule_number: 1000,

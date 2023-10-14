@@ -6,7 +6,7 @@ const knex = require("knex")(require("../knexfile"));
  * @param {*} _req
  * @param {*} res
  */
-const getAllRules = async (req, res) => {
+const getAllRules = async (_req, res) => {
   let rules = await knex("rules")
     .select("rules.rule_number", "rules.rule_text")
     .orderBy("rules.rule_number")
@@ -14,7 +14,7 @@ const getAllRules = async (req, res) => {
       console.error(err);
       res.json(err);
     });
-  res.status(200).send(rules);
+  res.status(200).json(rules);
 };
 
 module.exports = { getAllRules };
