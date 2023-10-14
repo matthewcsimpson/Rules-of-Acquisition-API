@@ -1,11 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>The Rules of Acquisition</title>
+
+   <style>
+      body {
+         font-family: sans-serif;
+         background: rgb(41, 41, 41);
+         color: #fff;
+         font-size: 24px;
+      }
+
+      a {
+         color: #fff;
+      }
+
+      .container {
+         width: 80%;
+         margin: 0 auto;
+      }
+   </style>
 </head>
+
 <body>
-   <h2>This API holds the Ferengi Rules of Acquisition</h2>
+
+   <div class="container">
+
+      <h1 id="rules-of-acquisition-api">Rules-of-Acquisition-API</h1>
+      <p>This is an API listing the Ferengi Rules of Acquisition, the guiding principles of the hyper-capitalist Ferengi
+         people featured in Star Trek. </p>
+      <p>It is built with Node.js, Express.js, with MySQL and Knex.js. </p>
+      <h2 id="api-reference">API Reference</h2>
+      <p>You can access the API here: <a
+            href="https://rulesofacquisition.herokuapp.com">https://rulesofacquisition.herokuapp.com</a></p>
+      <h3 id="get-a-list-of-the-rules">Get a list of the rules</h3>
+      <pre><code class="lang-http"><span class="hljs-attribute">GET</span> /rules
+   </code></pre>
+      <h4 id="response-">Response:</h4>
+      <p>Returns the full list of rules as an array of objects in JSON format. </p>
+      <pre><code class="lang-Javascript">[
+     {
+       <span class="hljs-attr">"rule_number"</span>: number,
+       <span class="hljs-attr">"rule_text"</span>: string,
+     },
+   ]
+   </code></pre>
+      <ul>
+         <li><code>rule_number</code> is the in-universe rule number and database ID.</li>
+         <li><code>rule_text</code> is the canon text of the rule </li>
+      </ul>
+      <h3 id="get-a-specific-rule">Get a specific rule</h3>
+      <p>Returns the text and details of a specified rule, including the episodes in which that rule appeared. </p>
+      <pre><code class="lang-http">GET <span class="hljs-regexp">/rule/</span>:rule_id
+   </code></pre>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align:left">Parameter</th>
+               <th style="text-align:left">Type</th>
+               <th style="text-align:left">Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align:left"><code>:rule_id</code></td>
+               <td style="text-align:left"><code>number</code></td>
+               <td style="text-align:left">The identifying rule number/ID</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4 id="response">Response</h4>
+      <pre><code class="lang-javascript">{
+     <span class="hljs-attr">"ruleDetails"</span>: 
+       {
+         <span class="hljs-attr">"rule_number"</span>: number,
+         <span class="hljs-attr">"rule_text"</span>: string,
+         <span class="hljs-attr">"rule_variation"</span>: string || <span class="hljs-literal">null</span>,
+         <span class="hljs-attr">"rule_note"</span>: string || <span class="hljs-literal">null</span>,
+       },
+     <span class="hljs-attr">"episodeDetails"</span>: [
+       {
+         <span class="hljs-attr">"series_id"</span>: number,
+         <span class="hljs-attr">"series_name"</span>: string,
+         <span class="hljs-attr">"episode_season"</span>: number,
+         <span class="hljs-attr">"episode_number"</span>: number,
+         <span class="hljs-attr">"episode_title"</span>: string,
+         <span class="hljs-attr">"episode_synopsis"</span>: string,
+         <span class="hljs-attr">"episode_date"</span>: <span class="hljs-string">"1993-05-02T00:00:00.000Z"</span>
+       },
+     ]
+   }
+   </code></pre>
+      <ul>
+         <li><code>ruleDetails</code>, an object containing the full details of the specified rule. </li>
+         <li>
+            <ul>
+               <li><code>rule_number</code> is the in-universe rule number and database ID for the specified rule.</li>
+               <li><code>rule_text</code> is the canon text of the specified rule</li>
+               <li><code>rule_variation</code> is a variation on the specified rules language. <code>null</code> if
+                  there
+                  isn&#39;t one.</li>
+               <li><code>rule_note</code> is a note about the context of the specified rule. <code>null</code> if there
+                  isn&#39;t one.</li>
+            </ul>
+         </li>
+         <li><code>episodeDetails</code> is an array of episodes that the specified rule appeared in. </li>
+         <li>
+            <ul>
+               <li><code>series_id</code> is the id string of the series. Eg: &quot;TNG&quot; for The Next
+                  Generation&quot;
+               </li>
+               <li><code>series_name</code> is the full name of the series this episode was in.</li>
+               <li><code>episode_season</code> is the season this episode was in.</li>
+               <li><code>episode_number</code> is the episode number in the season that the specified rule appeared in.
+               </li>
+               <li><code>episode_synopsis</code> is a brief description of the episode the specified rule appeared in.
+               </li>
+               <li><code>episode_date</code> is the original airdate for the episode the specified rule appeared in.
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p>Note: Returns 404 if a rule number that does not exist is specified. </p>
+      <h3 id="get-a-list-of-the-revised-edition-rules-">Get a list of the &quot;revised&quot; edition rules.</h3>
+      <pre><code class="lang-http">GET <span class="hljs-regexp">/rules/</span>revised
+   </code></pre>
+      <h4 id="response">Response</h4>
+      <pre><code class="lang-Javascript">[
+     {
+       <span class="hljs-attr">"rule_number"</span>: number,
+       <span class="hljs-attr">"revised_editionÏ"</span>: string,
+     },
+   ]
+   </code></pre>
+      <ul>
+         <li><code>rule_number</code> is the in-universe rule number and database ID.</li>
+         <li><code>revised_edition</code> is the canon text of the rule</li>
+      </ul>
+      <h3 id="get-a-specific-revsied-rule">Get a specific revsied rule</h3>
+      <p>Returns the text and details of a specified rule, including the episodes in which that rule appeared. </p>
+      <pre><code class="lang-http">GET /rule/<span class="hljs-symbol">:rule_id/revised</span>
+   </code></pre>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align:left">Parameter</th>
+               <th style="text-align:left">Type</th>
+               <th style="text-align:left">Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align:left"><code>:rule_id</code></td>
+               <td style="text-align:left"><code>number</code></td>
+               <td style="text-align:left">The identifying rule number/ID</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4 id="response">Response</h4>
+      <pre><code class="lang-javascript">{
+     <span class="hljs-attr">"ruleDetails"</span>: 
+       {
+         <span class="hljs-attr">"rule_number"</span>: number,
+         <span class="hljs-attr">"revised_edition"</span>: string,
+         <span class="hljs-attr">"revised_note"</span>: string
+       },
+     <span class="hljs-attr">"episodeDetails"</span>: [
+       {
+         <span class="hljs-attr">"series_id"</span>: number,
+         <span class="hljs-attr">"series_name"</span>: string,
+         <span class="hljs-attr">"episode_season"</span>: number,
+         <span class="hljs-attr">"episode_number"</span>: number,
+         <span class="hljs-attr">"episode_title"</span>: string,
+         <span class="hljs-attr">"episode_synopsis"</span>: string,
+         <span class="hljs-attr">"episode_date"</span>: <span class="hljs-string">"1993-05-02T00:00:00.000Z"</span>
+       },
+     ]
+   }
+   </code></pre>
+      <ul>
+         <li><code>ruleDetails</code>, an object containing the full details of the specified revised edition rule.
+         </li>
+         <li>
+            <ul>
+               <li><code>rule_number</code> is the in-universe rule number and database ID for the specified rule.</li>
+               <li><code>revised_edition</code> is the canon text of the specified revised edition rule</li>
+               <li><code>revised_note</code> is a note about the context of the specified revised edition rule.
+                  <code>null</code> if there isn&#39;t one.
+               </li>
+            </ul>
+         </li>
+         <li><code>episodeDetails</code> is an array of episodes that the specified rule appeared in. </li>
+         <li>
+            <ul>
+               <li><code>series_id</code> is the id string of the series. Eg: &quot;TNG&quot; for The Next
+                  Generation&quot;
+               </li>
+               <li><code>series_name</code> is the full name of the series this episode was in.</li>
+               <li><code>episode_season</code> is the season this episode was in.</li>
+               <li><code>episode_number</code> is the episode number in the season that the specified rule appeared in.
+               </li>
+               <li><code>episode_synopsis</code> is a brief description of the episode the specified rule appeared in.
+               </li>
+               <li><code>episode_date</code> is the original airdate for the episode the specified rule appeared in.
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p>Note: Returns 404 if a rule number that does not exist is specified. </p>
+   </div>
+
 </body>
+
 </html>
