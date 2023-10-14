@@ -34,7 +34,7 @@ const getRuleById = async (req, res) => {
       console.error("ERROR:", err);
     });
 
-  res.status(200).json({ ruleDetails, episodeDetails });
+  res.status(200).json({ ruleDetails: ruleDetails[0], episodeDetails });
 };
 
 module.exports = { getRuleById };

@@ -41,7 +41,7 @@ module.exports =[
     },
     {
         series_id: "PRO",
-        series_name: "Star Trek: Lower Decks"
+        series_name: "Star Trek: Prodigy"
     },
     {
         series_id: "SNW",
