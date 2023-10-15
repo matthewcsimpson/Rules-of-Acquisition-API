@@ -6,6 +6,8 @@ const getAllRevisedRules = async (_req, res) => {
     .whereNotNull("rules.revised_edition")
     .catch((err) => {
       console.error(err);
+    }).finally(() => {
+      knex.destroy();
     });
 
   res.status(200).json(rules);

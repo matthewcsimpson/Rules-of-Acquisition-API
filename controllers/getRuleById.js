@@ -18,7 +18,7 @@ const getRuleById = async (req, res) => {
       "rules.rule_number",
       "rules.rule_text",
       "rules.rule_variation",
-      "rules.rule_note",
+      "rules.rule_note"
     )
     .catch((err) => {
       res.error(err);
@@ -43,6 +43,9 @@ const getRuleById = async (req, res) => {
     .catch((err) => {
       res.error(err);
       console.error("ERROR:", err);
+    })
+    .finally(() => {
+      knex.destroy();
     });
 
   if (!checkRule) {
@@ -51,7 +54,5 @@ const getRuleById = async (req, res) => {
     res.status(200).json({ ruleDetails: ruleDetails[0], episodeDetails });
   }
 };
-
-
 
 module.exports = { getRuleById };

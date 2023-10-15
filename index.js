@@ -10,6 +10,7 @@ app.use(express.static("public"));
 
 // Routes
 const rulesRouter = require("./routes/rulesRouter");
+const episodesRouter = require("./routes/episodesRouter");
 
 // Server Port
 const port = process.env.PORT || 5555;
@@ -20,7 +21,11 @@ app.use(async (req, _res, next) => {
   next();
 });
 
+// Rules Routes
 app.use("/rules", rulesRouter);
+
+// Episode Routes
+app.use("/episodes", episodesRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

@@ -13,6 +13,8 @@ const getAllRules = async (_req, res) => {
     .catch((err) => {
       console.error(err);
       res.json(err);
+    }).finally(() => {
+      knex.destroy();
     });
   res.status(200).json(rules);
 };
