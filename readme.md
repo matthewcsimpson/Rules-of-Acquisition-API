@@ -57,7 +57,6 @@ GET /rule/:rule_id
     },
   "episodeDetails": [
     {
-      "series_id": number,
       "series_name": string,
       "episode_season": number,
       "episode_number": number,
@@ -75,8 +74,7 @@ GET /rule/:rule_id
   - `rule_variation` is a variation on the specified rules language. `null` if there isn't one.
   - `rule_note` is a note about the context of the specified rule. `null` if there isn't one.
 - `episodeDetails` is an array of episodes that the specified rule appeared in.
-- - `series_id` is the id string of the series. Eg: "TNG" for The Next Generation"
-  - `series_name` is the full name of the series this episode was in.
+- - `series_name` is the full name of the series this episode was in.
   - `episode_season` is the season this episode was in.
   - `episode_number` is the episode number in the season that the specified rule appeared in.
   - `episode_synopsis` is a brief description of the episode the specified rule appeared in.
@@ -130,7 +128,6 @@ GET /rule/:rule_id/revised
     },
   "episodeDetails": [
     {
-      "series_id": number,
       "series_name": string,
       "episode_season": number,
       "episode_number": number,
@@ -147,8 +144,7 @@ GET /rule/:rule_id/revised
   - `revised_edition` is the canon text of the specified revised edition rule
   - `revised_note` is a note about the context of the specified revised edition rule. `null` if there isn't one.
 - `episodeDetails` is an array of episodes that the specified rule appeared in.
-- - `series_id` is the id string of the series. Eg: "TNG" for The Next Generation"
-  - `series_name` is the full name of the series this episode was in.
+- - `series_name` is the full name of the series this episode was in.
   - `episode_season` is the season this episode was in.
   - `episode_number` is the episode number in the season that the specified rule appeared in.
   - `episode_synopsis` is a brief description of the episode the specified rule appeared in.
