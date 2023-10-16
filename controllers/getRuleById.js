@@ -34,6 +34,7 @@ const getRuleById = async (req, res) => {
       "episodes.episode_number",
       "episodes.episode_title",
       "episodes.episode_synopsis",
+      "rule_appearance.episode_id",
       "episodes.episode_date"
     )
     .join("rule_appearance", "rule_appearance.rule_number", "rules.rule_number")
