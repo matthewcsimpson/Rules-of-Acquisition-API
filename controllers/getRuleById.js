@@ -28,13 +28,11 @@ const getRuleById = async (req, res) => {
   const episodeDetails = await knex("rules")
     .where("rules.rule_number", req.params.rule_id)
     .select(
-      "series.series_id",
       "series.series_name",
       "episodes.episode_season",
       "episodes.episode_number",
       "episodes.episode_title",
       "episodes.episode_synopsis",
-      "rule_appearance.episode_id",
       "episodes.episode_date"
     )
     .join("rule_appearance", "rule_appearance.rule_number", "rules.rule_number")
