@@ -64,9 +64,6 @@ const getAllEpisodes = async (_req, res) => {
     })
     .catch((error) => {
       console.error(error);
-    })
-    .finally(() => {
-      knex.destroy();
     });
 };
 

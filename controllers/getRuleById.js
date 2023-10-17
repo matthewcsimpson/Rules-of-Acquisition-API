@@ -42,9 +42,6 @@ const getRuleById = async (req, res) => {
     .catch((err) => {
       res.error(err);
       console.error("ERROR:", err);
-    })
-    .finally(() => {
-      knex.destroy();
     });
 
   if (!checkRule) {
