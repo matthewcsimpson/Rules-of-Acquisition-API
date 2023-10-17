@@ -27,6 +27,7 @@ const getRuleById = async (req, res) => {
 
   const episodeDetails = await knex("rules")
     .where("rules.rule_number", req.params.rule_id)
+    .where("rule_appearance.revised_edition", false)
     .select(
       "series.series_name",
       "episodes.episode_season",
