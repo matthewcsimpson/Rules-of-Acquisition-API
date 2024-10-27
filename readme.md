@@ -62,7 +62,7 @@ GET /rule/:rule_id
       "episode_number": number,
       "episode_title": string,
       "episode_synopsis": string,
-      "episode_date": "1993-05-02T00:00:00.000Z"
+      "episode_date": string
     },
   ]
 }
@@ -77,8 +77,9 @@ GET /rule/:rule_id
 - - `series_name` is the full name of the series this episode was in.
   - `episode_season` is the season this episode was in.
   - `episode_number` is the episode number in the season that the specified rule appeared in.
+  - `episode_title` is the title of the episode the specified rule appeared in
   - `episode_synopsis` is a brief description of the episode the specified rule appeared in.
-  - `episode_date` is the original airdate for the episode the specified rule appeared in.
+  - `episode_date` is the original airdate for the episode the specified rule appeared in, in the format "1993-05-02T00:00:00.000Z"
 
 Note: Returns 404 if a rule number that does not exist is specified.
 
@@ -133,7 +134,7 @@ GET /rule/:rule_id/revised
       "episode_number": number,
       "episode_title": string,
       "episode_synopsis": string,
-      "episode_date": "1993-05-02T00:00:00.000Z"
+      "episode_date": string,
     },
   ]
 }
@@ -147,7 +148,91 @@ GET /rule/:rule_id/revised
 - - `series_name` is the full name of the series this episode was in.
   - `episode_season` is the season this episode was in.
   - `episode_number` is the episode number in the season that the specified rule appeared in.
+  - `episode_title` is the title of the episode the specified rule appeared in
   - `episode_synopsis` is a brief description of the episode the specified rule appeared in.
-  - `episode_date` is the original airdate for the episode the specified rule appeared in.
+  - `episode_date` is the original airdate for the episode the specified rule appeared in, in the format "1993-05-02T00:00:00.000Z".
 
 Note: Returns 404 if a rule number that does not exist is specified.
+
+### Get a list of all Star Trek episodes in which rules appear
+
+Returns the full list of episodes as an array of objects in JSON format.
+
+```http
+GET /episodes
+```
+
+#### Reponse
+
+```javascript
+  {
+    "episode_title": string,
+    "series_name": string,
+    "episode_season": number,
+    "episode_number": number,
+    "episode_synopsis": string,
+    "episode_date": string,
+    "episode_rules": [
+      {
+        "rule_number": number,
+        "rule_text": string
+      }
+    ]
+  },
+```
+- `episode_title` is the title of the episode the specified rule appeared in
+- `series_name` is the full name of the series this episode was in.
+- `episode_season` is the season this episode was in.
+- `episode_number` is the episode number in the season that this episode appeared in.
+- `episode_synopsis` is a brief description of the episode.
+- `episode_date` is the original airdate for the episode in the format 1993-05-02T00:00:00.000Z".
+- `episode_rules` is an array of the rules that appeared in this episode
+- - `rule_number` is the in-universe rule number and database ID.
+  - `rule_text` is the canon text of the rule
+
+
+### Get a specific episode
+
+```http
+GET /episodes/{episode_id}
+```
+| Parameter     | Type     | Description                    |
+| :------------ | :------- | :----------------------------- |
+| `:episode_id` | `string` | The episode ID String, the format `<series code>`-`<season number>`x`<episode number>`.  eg: Deep Space Nine, Season 3, Episode 11 is `ds9-3x11`|
+
+Season codes:
+```markdown
+| Series Code | Series Name         |
+| :---------- | :------------------ |
+| `tng`       | The Next Generation |
+| `ds9`       | Deep Space Nine     |
+| `voy`       | Voyager             |
+| `ent`       | Enterprise          |
+| `dis`       | Discovery           |
+| `ld`        | Lower Decks         |
+| `pro`       | Prodigy             |
+```
+
+#### Response 
+
+```javascript
+{
+  "episodeInfo": {
+    "episode_id": string,
+    "episode_title": string,
+    "series_name": string,
+    "episode_season": number,
+    "episode_number": number,
+    "episode_date": string,
+    "episode_synopsis": string,
+  },
+  "episodeRules": [
+    {
+      "rule_number": number,
+      "rule_text": string
+    },
+  ]
+}
+```
+
+"1995-01-08T00:00:00.000Z"

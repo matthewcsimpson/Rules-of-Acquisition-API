@@ -46,6 +46,7 @@ const getAllEpisodes = async (_req, res) => {
             episode_number,
             episode_synopsis,
             episode_date,
+            episode_id,
             episode_rules: [],
           };
         }
@@ -60,7 +61,6 @@ const getAllEpisodes = async (_req, res) => {
 
       const result = Object.values(episodes);
       res.status(200).json(result);
-      //   console.log(JSON.stringify(result, null, 2));
     })
     .catch((error) => {
       console.error(error);

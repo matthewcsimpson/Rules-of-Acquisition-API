@@ -28,5 +28,5 @@ app.use("/rules", rulesRouter);
 app.use("/episodes", episodesRouter);
 
 app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+  console.info(`[server]: Server is running at http://localhost:${port}`);
 });
