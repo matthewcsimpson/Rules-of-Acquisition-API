@@ -269,6 +269,3 @@ Series codes:
 - `episode_rules` is an array of the rules that appeared in this episode
 - - `rule_number` is the in-universe rule number and database ID.
   - `rule_text` is the canon text of the rule
-
-
-"1995-01-08T00:00:00.000Z"
