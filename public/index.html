@@ -1,38 +1,117 @@
 <!DOCTYPE html>
 <html lang="en-US" translate="no">
-  <head>
-    <meta charset="UTF-8">
-    <title>The Ferengi Rules of Acquisition API</title>
-    <style>
-      .swagger-ui .topbar {
-        display: none;
-      }
-    </style>
-    <link rel="stylesheet" href="./style.css">
-    <style>
-      html {
-        box-sizing: border-box;
-        overflow: -moz-scrollbars-vertical;
-        overflow-y: scroll;
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Ferengi Rules of Acquisition API</title>
+  <style>
+    .swagger-ui .topbar {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+
+    /* Custom API Header Styles */
+    .api-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-bottom: 2px solid #dee2e6;
+      margin-bottom: 2rem;
+    }
+
+    .api-header h1 {
+      color: #495057;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .api-description {
+      color: #6c757d;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .api-credits {
+      color: #495057;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    .api-credits a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .api-credits a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .api-header {
+        padding: 1.5rem 1rem;
       }
 
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
+      .api-header h1 {
+        font-size: 2rem;
       }
 
-      body {
-        margin: 0;
-        background: #fafafa;
+      .api-description {
+        font-size: 1rem;
       }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 
-  <body>
-    <div id="swagger-ui"></div>
-    <script src="./scripts.js"></script>
-    <script src="./scripts2.js"></script>
-    <script src="./scripts3.js"></script>
-  </body>
+<body>
+  <div class="api-header">
+    <h1>The Ferengi Rules of Acquisition API</h1>
+    <p class="api-description">
+      A comprehensive API providing access to the Ferengi Rules of Acquisition from the Star Trek universe.
+      This API includes original rules, revised rules, and episode information where these rules appeared.
+      Perfect for developers building Star Trek-themed applications or anyone who wants to incorporate
+      Ferengi wisdom into their projects.
+    </p>
+    <p class="api-credits">
+      Created by <strong>Matthew Simpson</strong> |
+      <a href="https://github.com/matthewcsimpson/Rules-of-Acquisition-API" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </p>
+  </div>
+  <div id="swagger-ui"></div>
+  <script src="./scripts.js"></script>
+  <script src="./scripts2.js"></script>
+  <script src="./scripts3.js"></script>
+</body>
+
 </html>

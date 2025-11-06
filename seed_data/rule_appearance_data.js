@@ -289,7 +289,7 @@ module.exports = [
     episode_id: "ds9-5x20",
   },
   {
-    rule_number: 229,
+    rule_number: 239,
     episode_id: "ds9-4x25",
   },
   {
