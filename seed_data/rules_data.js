@@ -93,8 +93,6 @@ module.exports = [
   {
     rule_number: 45,
     rule_text: "Expand or die",
-    rule_note:
-      "Rule of Acquisition #95 was quoted as Rule #45 in Enterprise episode Acquisition.",
   },
   {
     rule_number: 47,
@@ -135,7 +133,7 @@ module.exports = [
   },
   {
     rule_number: 95,
-    rule_text: "Females and finances don't mix.",
+    rule_text: "Expand or die.",
     rule_note:
       "Rule of Acquisition #95 was quoted as Rule #45 in Enterprise episode Acquisition.",
   },

@@ -123,7 +123,7 @@ module.exports = [
     episode_id: "ds9-5x20",
     series_id: "DS9",
     episode_season: 5,
-    episode_number: 19,
+    episode_number: 20,
     episode_date: "1997-04-21",
     episode_synopsis:
       "Quark discovers that his mother and Grand Nagus Zek have fallen in love with each other. Rom and Leeta's relationship hits a rocky patch.",

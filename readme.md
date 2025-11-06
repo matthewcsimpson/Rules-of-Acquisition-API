@@ -1,31 +1,31 @@
-# Rules-of-Acquisition-API
+## Rules-of-Acquisition-API
 
 This is an API listing the Ferengi Rules of Acquisition, the guiding principles of the hyper-capitalist Ferengi people featured in Star Trek.
 
 It is built with Node.js, Express.js, with MySQL and Knex.js.
 
-# API Reference
+## API Reference
 
 You can access the API -along with full interactive documentation generated via apidog- here: <https://rulesofacquisition.herokuapp.com>
 
-## Base URL:
+### Base URL:
 
 ```string
 https://rulesofacquisition.herokuapp.com
 ```
 
-## Get a list of the rules
+### Get a list of the rules
 
 Returns the full list of rules as an array of objects in JSON format.
 
-## Request:
+### Request:
 
 ```http
 GET /rules
 
 ```
 
-## Response:
+### Response:
 
 ```Javascript
 [
@@ -39,11 +39,11 @@ GET /rules
 - `rule_number` is the in-universe rule number and database ID.
 - `rule_text` is the canon text of the rule
 
-## Get a specific rule
+### Get a specific rule
 
 Returns the text and details of a specified rule, including the episodes in which that rule appeared.
 
-## Request:
+### Request:
 
 ```http
 GET /rule/:rule_id
@@ -54,7 +54,7 @@ GET /rule/:rule_id
 | :--------- | :------- | :----------------------------- |
 | `:rule_id` | `number` | The identifying rule number/ID |
 
-## Response
+### Response
 
 ```javascript
 {
@@ -93,18 +93,18 @@ GET /rule/:rule_id
 
 Note: Returns 404 if a rule number that does not exist is specified.
 
-## Get a list of the "revised" edition rules.
+### Get a list of the "revised" edition rules.
 
 Returns the full list of 'revised edition' rules as created by Grand Nagus Zek under the influence of the Bajoran Prophets.
 
-## Request:
+### Request:
 
 ```http
 GET /rules/revised
 
 ```
 
-## Response
+### Response
 
 ```Javascript
 [
@@ -118,11 +118,11 @@ GET /rules/revised
 - `rule_number` is the in-universe rule number and database ID.
 - `revised_edition` is the canon text of the rule
 
-## Get a specific revsied rule
+### Get a specific revsied rule
 
 Returns the text and details of a specified 'revised edition' rule, including the episodes in which that rule appeared.
 
-## Request:
+### Request:
 
 ```http
 GET /rule/:rule_id/revised
@@ -133,7 +133,7 @@ GET /rule/:rule_id/revised
 | :--------- | :------- | :----------------------------- |
 | `:rule_id` | `number` | The identifying rule number/ID |
 
-## Response
+### Response
 
 ```javascript
 {
@@ -170,17 +170,17 @@ GET /rule/:rule_id/revised
 
 Note: Returns 404 if a rule number that does not exist is specified.
 
-## Get a list of all Star Trek episodes in which rules appear
+### Get a list of all Star Trek episodes in which rules appear
 
 Returns the full list of episodes as an array of objects in JSON format.
 
-## Request:
+### Request:
 
 ```http
 GET /episodes
 ```
 
-## Reponse
+### Reponse
 
 ```javascript
   {
@@ -211,7 +211,7 @@ GET /episodes
   - `rule_text` is the canon text of the rule
 
 
-## Get a specific episode
+### Get a specific episode
 
 ## Request:
 
@@ -236,7 +236,7 @@ Series codes:
 | Prodigy             | `pro`       |
 ```
 
-## Response: 
+### Response: 
 
 ```javascript
 {
