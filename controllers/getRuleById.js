@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile"));
+const knex = require("../db");
 
 const getRuleById = async (req, res) => {
   // List all the rule numbers for error checking

@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile"));
+const knex = require("../db");
 
 const getAllRevisedRules = async (_req, res) => {
   let rules = await knex("rules")

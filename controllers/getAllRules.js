@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile"));
+const knex = require("../db");
 
 /**
  * Function to return all of the rules of acquisition.

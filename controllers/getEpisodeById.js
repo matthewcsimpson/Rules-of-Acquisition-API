@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile"));
+const knex = require("../db");
 
 const getEpisodeById = async (req, res) => {
   const epIds = await knex
