@@ -18,7 +18,8 @@ const db = require("./db");
 // Server Port
 const port = process.env.PORT || 5555;
 
-// Middleware, checks if the request as a valid API key.
+// Middleware: logs each incoming request. (No API-key check is performed
+// here despite the prior comment — this endpoint set is public.)
 app.use(async (req, _res, next) => {
   console.info(`${Date.now()} incoming request at ${req.url}`);
   next();
