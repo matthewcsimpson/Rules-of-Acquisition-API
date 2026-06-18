@@ -35,11 +35,11 @@ const makeGetRuleById = ({ revised }) => async (req, res) => {
       ];
 
   const ruleDetails = await knex("rules")
-    .where("rules.rule_number", req.params.rule_id)
+    .where("rules.rule_number", ruleId)
     .select(ruleColumns);
 
   const episodeQuery = knex("rules")
-    .where("rules.rule_number", req.params.rule_id)
+    .where("rules.rule_number", ruleId)
     .distinct()
     .select(
       "series.series_name",

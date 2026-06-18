@@ -95,7 +95,7 @@ describe("getRuleById", () => {
     expect(episodeQuery.distinct).toHaveBeenCalled();
     // only the rule_number where — no rule_appearance.revised_edition filter
     expect(episodeQuery.where).toHaveBeenCalledTimes(1);
-    expect(episodeQuery.where).toHaveBeenCalledWith("rules.rule_number", "1");
+    expect(episodeQuery.where).toHaveBeenCalledWith("rules.rule_number", 1);
   });
 
   test("does not apply the revised existence filter", async () => {

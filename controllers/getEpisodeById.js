@@ -6,6 +6,12 @@ const getEpisodeById = async (req, res) => {
     qb.where("episode_id", req.params.episode_id)
   );
 
+  if (!checkEpisode) {
+    return res
+      .status(404)
+      .json({ error: `There is no episode with that ID` });
+  }
+
   const episodeInfo = await knex
     .select(
       "episodes.episode_id",
@@ -28,13 +34,9 @@ const getEpisodeById = async (req, res) => {
     .where("rule_appearance.revised_edition", false)
     .orderBy("rules.rule_number", "asc");
 
-  if (!checkEpisode) {
-    res.status(404).json({ error: `There is no episode with that ID` });
-  } else {
-    res
-      .status(200)
-      .json({ episodeInfo: episodeInfo[0], episodeRules: episodeRules });
-  }
+  res
+    .status(200)
+    .json({ episodeInfo: episodeInfo[0], episodeRules: episodeRules });
 };
 
 module.exports = { getEpisodeById };
