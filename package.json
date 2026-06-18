@@ -2,9 +2,9 @@
   "name": "rulesacquisition",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node ./index.js",
     "dev": "nodemon -q ./index.js"
   },
@@ -24,6 +24,7 @@
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.10",
     "concurrently": "^7.6.0",
+    "jest": "^30.4.2",
     "nodemon": "^2.0.22"
   }
 }

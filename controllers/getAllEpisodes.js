@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile"));
+const knex = require("../db");
 
 const getAllEpisodes = async (_req, res) => {
   await knex
@@ -61,9 +61,6 @@ const getAllEpisodes = async (_req, res) => {
 
       const result = Object.values(episodes);
       res.status(200).json(result);
-    })
-    .catch((error) => {
-      console.error(error);
     });
 };
 
