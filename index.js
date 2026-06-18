@@ -12,6 +12,9 @@ app.use(express.static("public"));
 const rulesRouter = require("./routes/rulesRouter");
 const episodesRouter = require("./routes/episodesRouter");
 
+// Database client, used by the readiness check below.
+const db = require("./db");
+
 // Server Port
 const port = process.env.PORT || 5555;
 
@@ -19,6 +22,18 @@ const port = process.env.PORT || 5555;
 app.use(async (req, _res, next) => {
   console.info(`${Date.now()} incoming request at ${req.url}`);
   next();
+});
+
+// Readiness check — reports unavailable when the database can't be reached,
+// rather than answering 200 while broken.
+app.get("/health", async (_req, res) => {
+  try {
+    await db.raw("select 1");
+    res.status(200).json({ status: "ok" });
+  } catch (err) {
+    console.error(err);
+    res.status(503).json({ status: "unavailable" });
+  }
 });
 
 // Rules Routes
