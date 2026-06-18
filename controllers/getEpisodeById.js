@@ -1,15 +1,9 @@
 const knex = require("../db");
+const { exists } = require("../helpers/exists");
 
 const getEpisodeById = async (req, res) => {
-  const epIds = await knex
-    .select("episode_id")
-    .from("episodes")
-    .catch((err) => {
-      console.error("Error", err);
-    });
-
-  let checkEpisode = epIds.find(
-    (epId) => epId.episode_id === req.params.episode_id
+  const checkEpisode = await exists("episodes", (qb) =>
+    qb.where("episode_id", req.params.episode_id)
   );
 
   const episodeInfo = await knex

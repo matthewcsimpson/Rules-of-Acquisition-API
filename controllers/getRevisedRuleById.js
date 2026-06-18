@@ -1,17 +1,13 @@
 const knex = require("../db");
+const { exists } = require("../helpers/exists");
 
 const getRevisedRuleById = async (req, res) => {
-  // List all the rule numbers for error checking
-  const ruleNums = await knex("rules")
-    .select("rule_number")
-    .whereNotNull("revised_edition")
-    .catch((err) => {
-      console.error("Error: ", err);
-    });
-
-  let checkRule = ruleNums.find(
-    (rule) => rule.rule_number === Number(req.params.rule_id)
-  );
+  const ruleId = Number(req.params.rule_id);
+  const checkRule = Number.isNaN(ruleId)
+    ? false
+    : await exists("rules", (qb) =>
+        qb.where("rule_number", ruleId).whereNotNull("revised_edition")
+      );
 
   const ruleDetails = await knex("rules")
     .where("rules.rule_number", req.params.rule_id)
