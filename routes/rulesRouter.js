@@ -4,8 +4,10 @@ const router = express.Router();
 // Controllers
 const { getAllRules } = require("../controllers/getAllRules");
 const { getAllRevisedRules } = require("../controllers/getAllRevisedRules");
-const { getRuleById } = require("../controllers/getRuleById");
-const { getRevisedRuleById } = require("../controllers/getRevisedRuleById");
+const {
+  getRuleById,
+  getRevisedRuleById,
+} = require("../controllers/getRuleById");
 
 // Get All Rules
 router.get("/", getAllRules);
