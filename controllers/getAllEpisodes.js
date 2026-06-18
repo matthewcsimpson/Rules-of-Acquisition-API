@@ -61,9 +61,6 @@ const getAllEpisodes = async (_req, res) => {
 
       const result = Object.values(episodes);
       res.status(200).json(result);
-    })
-    .catch((error) => {
-      console.error(error);
     });
 };
 

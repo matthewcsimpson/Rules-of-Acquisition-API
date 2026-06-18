@@ -27,6 +27,13 @@ app.use("/rules", rulesRouter);
 // Episode Routes
 app.use("/episodes", episodesRouter);
 
+// Centralised error handler. Any handler rejection forwarded by
+// asyncHandler lands here as a 500 instead of hanging the request.
+app.use((err, _req, res, _next) => {
+  console.error(err);
+  res.status(500).json({ error: "Internal server error" });
+});
+
 app.listen(port, () => {
   console.info(`[server]: Server is running at http://localhost:${port}`);
 });

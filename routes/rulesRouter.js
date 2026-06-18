@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const { asyncHandler } = require("../helpers/asyncHandler");
+
 // Controllers
 const { getAllRules } = require("../controllers/getAllRules");
 const { getAllRevisedRules } = require("../controllers/getAllRevisedRules");
@@ -10,15 +12,15 @@ const {
 } = require("../controllers/getRuleById");
 
 // Get All Rules
-router.get("/", getAllRules);
+router.get("/", asyncHandler(getAllRules));
 
 // Get All Revised Rules
-router.get("/revised", getAllRevisedRules);
+router.get("/revised", asyncHandler(getAllRevisedRules));
 
 // Get Specific Rule by Id
-router.get("/:rule_id", getRuleById);
+router.get("/:rule_id", asyncHandler(getRuleById));
 
 // Get Specific Revised Rule by Id
-router.get("/:rule_id/revised", getRevisedRuleById);
+router.get("/:rule_id/revised", asyncHandler(getRevisedRuleById));
 
 module.exports = router;
